@@ -1,0 +1,4 @@
+#!/bin/sh
+loggerPID=$(pgrep log_to_file)
+renice -19 -p $loggerPID
+ping -i 0.2 10.0.0.1

@@ -1,0 +1,28 @@
+#!/bin/sh
+killall dhclient
+killall wpa_supplicant
+sleep 3
+modprobe -r iwlwifi mac80211
+sleep 3
+modprobe iwlwifi connector_log=0x1
+sleep 1
+ifconfig eth0 up
+sleep 1
+ifconfig wlan1 up
+sleep 3
+wpa_supplicant -B -i wlan1 -c /etc/wpa_supplicant/wpa_supplicant.conf
+sleep 10
+phy=$(ls /sys/kernel/debug/ieee80211)
+addr=$(ls /sys/kernel/debug/ieee80211/$phy/netdev:wlan1/stations/)
+sleep 2
+#frames are sent at 1Mbps using CCK modulation (820.11b) and only using antenna A
+#echo 0x420A | tee /sys/kernel/debug/ieee80211/$phy/netdev:wlan1/stations/$addr/rate_scale_table
+#frames are sent at 78Mbps using 16QAM-1/2 modulation (820.11n) and using antenna A, B, C
+echo 0x1c113 | tee /sys/kernel/debug/ieee80211/$phy/netdev:wlan1/stations/$addr/rate_scale_table
+sleep 2
+#dhclient -r wlan1
+dhclient wlan1
+sleep 1
+linux-80211n-csitool-supplementary/netlink/log_to_file csi_ng.dat
+
+

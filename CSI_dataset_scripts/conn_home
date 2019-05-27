@@ -1,0 +1,7 @@
+#!/bin/sh
+#wpa_cli list_networks
+wpa_cli select_network 2
+sleep 2
+dhclient -r wlan1
+dhclient -v wlan1
+

@@ -1,0 +1,8 @@
+#!/bin/sh
+killall ping
+killall log_to_file
+sleep 2
+killall dhclient
+sleep 2
+killall wpa_supplicant
+
