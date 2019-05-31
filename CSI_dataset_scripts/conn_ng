@@ -1,5 +1,5 @@
 #!/bin/sh
 wpa_cli select_network 1
 sleep 2
-dhclient -r wlan1
-dhclient -v wlan1
+dhclient -r wlp1s0
+dhclient -v wlp1s0
