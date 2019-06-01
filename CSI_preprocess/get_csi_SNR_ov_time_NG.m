@@ -1,10 +1,5 @@
 clear;
 close all;
-%csi_trace = read_bf_file('sample_data/log.all_csi.6.7.6');
-%csi_trace = read_bf_file('sample_data/csi_local_ping.log');
-%csi_trace = read_bf_file('sample_data/csi.dat');
-%csi_trace = read_bf_file('sample_data/csi_ng_78mbps_stable.dat');
-%csi_trace = read_bf_file('sample_data/csi_ng_78mbps_stable2.dat');
 csi_trace = read_bf_file('sample_data/csi_ng_-6_6.dat');
 csi2 = zeros(1,3,30);
 TX_Antenna=3;
