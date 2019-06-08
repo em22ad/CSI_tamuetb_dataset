@@ -3,9 +3,13 @@ killall ping
 killall log_to_file
 sleep 3
 
+wait_secs=6
 #xterm -e "~/linux-80211n-csitool-supplementary/netlink/log_to_file csi_ng_$1_$2.dat
 #" &
 Dtime=$(date +"%k-%M-%S")
+#Utime=$(date +"%s")
+#eval $(date +"Dtime='%k-%M-%S'; Utime=%s")
+#$Utime=$Utime+6
 #echo $Dtime
 ~/linux-80211n-csitool-supplementary/netlink/log_to_file csi_ng_$1_$Dtime.dat &
 sleep 6
@@ -14,10 +18,10 @@ renice -19 -p $loggerPID
 
 #xterm -e "ping -s 65000 -i 0.05 10.0.0.1
 #" &
-#ping -s 65000 -i 0.05 10.0.0.1 &
-ping -s 65000 -i 0.2 10.0.0.1 &
+ping -s 65000 -i 0.05 10.0.0.1 &
+#ping -s 65000 -i 0.2 10.0.0.1 &
 
-sleep 500
+sleep 800
 killall ping
 sleep 3
 killall log_to_file
