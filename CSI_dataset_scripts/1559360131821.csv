@@ -1,0 +1,18 @@
+Category ID,Category name,UNIX time,Date (America/Chicago CDT),Text
+1,dataset,1559342237,"May 31, 2019 (Fri) 05:37:17 PM",0 0
+1,dataset,1559342259,"May 31, 2019 (Fri) 05:37:39 PM",0 1
+1,dataset,1559342284,"May 31, 2019 (Fri) 05:38:04 PM",0 2
+1,dataset,1559342314,"May 31, 2019 (Fri) 05:38:34 PM",0 3
+1,dataset,1559342336,"May 31, 2019 (Fri) 05:38:56 PM",0 4
+1,dataset,1559342361,"May 31, 2019 (Fri) 05:39:21 PM",0 5
+1,dataset,1559342387,"May 31, 2019 (Fri) 05:39:47 PM",0 6
+1,dataset,1559342417,"May 31, 2019 (Fri) 05:40:17 PM",1 6
+1,dataset,1559342436,"May 31, 2019 (Fri) 05:40:36 PM",2 6
+1,dataset,1559342455,"May 31, 2019 (Fri) 05:40:55 PM",3 6
+1,dataset,1559342479,"May 31, 2019 (Fri) 05:41:19 PM",4 6
+1,dataset,1559342507,"May 31, 2019 (Fri) 05:41:47 PM",-1 6
+1,dataset,1559342527,"May 31, 2019 (Fri) 05:42:07 PM",-2 6
+1,dataset,1559342551,"May 31, 2019 (Fri) 05:42:31 PM",-3 6
+1,dataset,1559342582,"May 31, 2019 (Fri) 05:43:02 PM",-4 6
+1,dataset,1559342605,"May 31, 2019 (Fri) 05:43:25 PM",-5 6
+1,dataset,1559342624,"May 31, 2019 (Fri) 05:43:44 PM",-6 6

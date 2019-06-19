@@ -1,16 +1,11 @@
 clear;
 close all;
-%csi_trace = read_bf_file('sample_data/csi_local_ping.log');
-%csi_trace = read_bf_file('../CSI_dataset/csi_ng_0_6.dat');
-%csi_trace = read_bf_file('../CSI_dataset_test/csi_ng_0_6.dat');
-csi_trace = read_bf_file('../CSI_dataset_test/03_29_19_1_10pm/csi_ng_0_6.dat');
-%csi_trace = read_bf_file('../CSI_dataset_test/03_29_19_8_35pm/csi_ng_0_6.dat');
-
-Ntx=3;
-Nrx=3;
-TX=3;
+csi_trace = read_bf_file('../CSI_dataset_scripts/csi_ng_1_17-36-41.dat'); %Actual data collection Started after delay of roughly 6.5 seconds
+Ntx=1;
+Nrx=2;
+TX=1;
 RX=[1 2];
-csi2 = zeros(1,3,30);    
+%csi2 = zeros(1,3,30);    
 %figure('name','CSI SNR change over time');
 %hold on;
 freq_st=25; %0,0 6,12,23 // 0,6 7,16,25
@@ -20,7 +15,7 @@ en=1.0;%0.025;
 start_obs=1+round(size(csi_trace,1)*st);
 end_obs=round(size(csi_trace,1)*en);
 disp(sprintf('Start:%d End:%d',start_obs,end_obs))
-csi_col_ser = cell(3,3);
+csi_col_ser = cell(size(TX,2),size(RX,2));
 obs_ctr=0;
 for i=1+round(size(csi_trace,1)*st):round(size(csi_trace,1)*en)
     if (mod(i,2) ~= 0)
@@ -35,11 +30,14 @@ for i=1+round(size(csi_trace,1)*st):round(size(csi_trace,1)*en)
     if (size(csi,1) < Ntx)
         continue;
     end
-    ant_ord=[1 2 3];
+    ant_ord=[1 2];
     obs_ctr=obs_ctr+1;
     csi2=csi(TX,:,:);
     tallmat=db(abs(squeeze(csi2)'));
-    for j=1:3
+    if (size(tallmat, 1) < 30)
+        continue;
+    end
+    for j=1:size(ant_ord,2)
         csi_col_ser{TX,ant_ord(j)}=[csi_col_ser{TX,ant_ord(j)} tallmat(:,ant_ord(j))];
     end
     %plot(tallmat)

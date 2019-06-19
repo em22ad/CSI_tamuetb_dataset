@@ -1,9 +1,9 @@
 clear;
 close all;
-csi_trace = read_bf_file('sample_data/csi_ng_-6_6.dat');
+csi_trace = read_bf_file('../CSI_dataset_scripts/csi_ng_1_17-36-41.dat'); %Actual data collection Started after delay of roughly 6.5 seconds
 csi2 = zeros(1,3,30);
 TX_Antenna=3;
-RX_Antenna=3; %1:3
+RX_Antenna=2; %1:3
 %figure;
 %hold on;
 %for i=int16(size(csi_trace,1)/2):int16(size(csi_trace,1)/1)
