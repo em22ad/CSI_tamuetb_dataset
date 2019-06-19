@@ -13,15 +13,16 @@ ifconfig wlp1s0 up
 sleep 8
 wpa_supplicant -B -i wlp1s0 -c /etc/wpa_supplicant/wpa_supplicant.conf
 sleep 10
-phy=$(ls /sys/kernel/debug/ieee80211)
-addr=$(ls /sys/kernel/debug/ieee80211/$phy/netdev:wlp1s0/stations/)
+phy=$(sudo ls /sys/kernel/debug/ieee80211)
+sleep 2
+addr=$(sudo ls /sys/kernel/debug/ieee80211/$phy/netdev:wlp1s0/stations/)
 sleep 2
 #frames are sent at 1Mbps using CCK modulation (820.11b) and only using antenna A
 #echo 0x420A | tee /sys/kernel/debug/ieee80211/$phy/netdev:wlp1s0/stations/$addr/rate_scale_table
 #frames are sent at 78Mbps using 16QAM-1/2 modulation (820.11n) and using antenna A, B, C
-#echo 0x1c113 | tee /sys/kernel/debug/ieee80211/$phy/netdev:wlp1s0/stations/$addr/rate_scale_table
+echo 0x1c113 |sudo tee /sys/kernel/debug/ieee80211/$phy/netdev:wlp1s0/stations/$addr/rate_scale_table
 #frames are sent at 195Mbps
-echo 0x1c117 | tee /sys/kernel/debug/ieee80211/$phy/netdev:wlp1s0/stations/$addr/rate_scale_table
+#echo 0x1c117 | tee /sys/kernel/debug/ieee80211/$phy/netdev:wlp1s0/stations/$addr/rate_scale_table
 #echo 0x1c10b | tee /sys/kernel/debug/ieee80211/$phy/netdev:wlp1s0/stations/$addr/rate_scale_table
 
 sleep 2
