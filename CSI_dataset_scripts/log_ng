@@ -13,7 +13,8 @@ renice -19 -p $loggerPID
 
 #xterm -e "ping -s 65000 -i 0.05 10.0.0.1
 #" &
-ping -s 6500 -i 0.05 10.0.0.1 &
+#ping -s 6500 -i 0.05 10.0.0.1 &
+ping -s 6500 -i 0.2 10.0.0.1 &
 
 sleep 30
 killall ping
